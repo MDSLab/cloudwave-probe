@@ -1,0 +1,4 @@
+
+probe_plugins:
+  - plugin: mycheck
+  - plugin: test

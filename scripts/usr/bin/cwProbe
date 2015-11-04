@@ -1,0 +1,10 @@
+#!/usr/bin/python
+
+import sys
+from cwProbe.Probe import startProbe
+
+
+if __name__ == "__main__":
+   sys.exit(startProbe())
+
+

@@ -1,0 +1,3 @@
+include scripts/usr/bin/cwProbe
+include scripts/etc/init.d/cwProbe
+include scripts/etc/init.d/cwProbe-sci
