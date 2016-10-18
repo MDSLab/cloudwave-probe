@@ -1,3 +1,3 @@
-CloudWave Python Yaml library
--------------------------------------
-This version requires Python 2.6 or later.
+CloudWave Probe
+---------------------------------------------
+This version requires Python 2.7 or later.

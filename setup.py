@@ -7,10 +7,10 @@ def read(fname):
 setup(
 	
 	name = "cwProbe",
-	#packages = ["cwProbe", "plugins"],
+	#packages = ["cwProbe"],
 	packages = find_packages(),
-	version = "1.6.1",
-	description = "CloudWave Monitoring Probe.",
+	version = "3.0",
+	description = "CloudWave Monitoring Probe for Y3.",
 	author = "UniMe Team - Nicola Peditto",
 	author_email = "npeditto@unime.it",
 	url = "http://www.cloudwave-fp7.eu/",
@@ -18,7 +18,7 @@ setup(
 	keywords = ["probe", "monitoring", "cloudwave"],
 	classifiers = [
 	        "Programming Language :: Python",
-	        "Programming Language :: Python :: 2.6",
+	        "Programming Language :: Python :: 2.7",
 	        "Development Status :: 4 - Beta",
 	        "Environment :: Other Environment",
 	        "Intended Audience :: Developers",
@@ -28,9 +28,7 @@ setup(
 	],
 	license='GPL',
 	platforms=['Any'],
-	#provides=['plugins',],
 	
-
 	dependency_links = [
 		'http://ing-wn-21.me.trigrid.it:8094/d/pyloglib/',
 		'http://ing-wn-21.me.trigrid.it:8094/d/pyyamllib/',
@@ -41,12 +39,12 @@ setup(
 	
 	entry_points={
     	'cwprobe.plugins.monitors': [
-    	    #'mycheck = plugins.cwpl_mycheckpoint:Cwpl_MyCheckPoint',
-    	    #'cpu = plugins.cwpl_cpu:Cwpl_Cpu',
-			#'awstats = plugins.cwpl_awstats:Cwpl_Awstat',
-    	    #'test = plugins.cwpl_test:Cwpl_Test',
+    	    'cpu = cwProbe.plugins.cwpl_cpu:Cwpl_Cpu',
+    	    'mem = cwProbe.plugins.cwpl_mem:Cwpl_Mem',
+    	    #'mysql = cwProbe.plugins.cwpl_mysql:Cwpl_MySql',
+    	    #'apache = cwProbe.plugins.cwpl_apache:Cwpl_Apache',
+    	    #'test = cwProbe.plugins.cwpl_test:Cwpl_Test',
     	    
-
     	],
 	},
 	
@@ -56,21 +54,18 @@ setup(
 		'httplib2',
 		'stevedore',
 		'psutil',
-		'qpid-python==0.20',
 		'pyyamllib',
 		'pyloglib',
 		'cwconfparser',
-		#'MySQL-python',
     ],
 	
 
 	include_package_data = True,
 	
 	data_files=[
-		#('/etc/init.d', ['scripts/etc/init.d/cwProbe']),
-		('/etc/init.d', ['scripts/etc/init.d/cwProbe', 'scripts/etc/init.d/cwProbe-sci',]),
+		('/etc/init.d', ['scripts/etc/init.d/cwProbe']),
 		('/usr/bin', ['scripts/usr/bin/cwProbe']),
-		#('/opt/cloudwave/cwprobe', ['config/opt/cloudwave/cwprobe/cwprobe.conf']),
+		('/opt/cloudwave/cwprobe', ['config/opt/cloudwave/cwprobe/cwprobe.conf']),
     ],
     
 	

@@ -1,0 +1,3 @@
+Jul 22 2014 17:38:17 webuntu cwProbe[6465]: found extension EntryPoint.parse('test = plugins.cwpl_test:Cwpl_Test')
+Jul 22 2014 17:38:17 webuntu cwProbe[6465]: found extension EntryPoint.parse('mycheck = plugins.cwpl_mycheckpoint:Cwpl_MyCheckPoint')
+Jul 22 2014 17:38:17 webuntu cwProbe[6465]: OPEN[7f5f4009cb00]: 192.168.4.255:5672
