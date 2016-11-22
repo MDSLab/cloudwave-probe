@@ -16,9 +16,15 @@ CloudWave Probe (cw-probe) has been tested to work on:
     * apt-get install -y build-essential libncurses-dev python-dev
   * Install cw-so:
     * apt-get install -y --force-yes cw-so
+  * Install CloudWave Python modules:
+    * wget https://github.com/MDSLab/cloudwave-probe/raw/master/packages/PyLogLib-1.0.tar.gz
+    * wget https://github.com/MDSLab/cloudwave-probe/raw/master/packages/cwConfParser-1.0.tar.gz
+    * pip install PyLogLib-1.0.tar.gz
+    * pip install cwConfParser-1.0.tar.gz
+    
 2. Install cw-probe:
-  * wget https://github.com/MDSLab/cloudwave-probe/raw/master/packages/cw-probe_3.0-19_amd64.deb
-  * sudo dpkg -i cw-probe_3.0-19_amd64.deb
+  * wget https://github.com/MDSLab/cloudwave-probe/raw/master/packages/cwProbe-3.0.tar.gz
+  * pip install cwProbe-3.0.tar.gz
 
 ##Configuration guide
 Edit the cw-probe configuration file /opt/cloudwave/cwprobe/cwprobe.conf in order to edit the log file location and/or the polling time (seconds) for each running plugin.
