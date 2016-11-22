@@ -15,7 +15,8 @@ CloudWave Probe (cw-probe) has been tested to work on:
     * apt-get update
     * apt-get install -y build-essential libncurses-dev python-dev
   * Install cw-so:
-    * apt-get install -y --force-yes cw-so
+    * wget https://github.com/MDSLab/cloudwave-probe/raw/master/packages/cw-so_3.0-48_amd64.deb
+    * dpkg -i cw-so_3.0-48_amd64.deb
   * Install CloudWave Python modules:
     * wget https://github.com/MDSLab/cloudwave-probe/raw/master/packages/PyLogLib-1.0.tar.gz
     * wget https://github.com/MDSLab/cloudwave-probe/raw/master/packages/cwConfParser-1.0.tar.gz
