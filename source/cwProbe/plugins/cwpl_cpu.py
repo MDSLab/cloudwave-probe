@@ -15,7 +15,7 @@
 # under the License.
 
 '''
-Created on 08/nov/2016
+Created on 18/lug/2014
 
 @authors: Nicola Peditto <npeditto@unime.it>, Fabio Verboso <fverboso@unime.it>
 '''
@@ -27,7 +27,7 @@ from cwProbe.Probe import Metric
 #USER IMPORT
 import subprocess
 import time
-import numpy as np
+
 
 class Cwpl_Cpu(CwPluginBase.CwPluginBase):
 
@@ -54,32 +54,19 @@ class Cwpl_Cpu(CwPluginBase.CwPluginBase):
         """Main plugin method."""
         
         print "Sending CPU measure..."
-        bashCommand = "top -b -n 2 -d.1 | grep Cpu | awk 'NR==2{ print;}' | awk '{print $2}'"# "top -b -n 1 | grep Cpu | awk '{print $2}'"
+        bashCommand = " top -b -n 5 -d.2 | grep Cpu | awk 'NR==3{ print;}'"
         
-
         while(1):
+            process = subprocess.Popen(['sh','-c', bashCommand], stdout=subprocess.PIPE)
+            process.wait()
+            output = process.communicate()[0]
+            data=Metric('cpu_used',float(output[8:13]),'%')
+            
+            self.send_metric(data)
+            time.sleep(float(self.loop_time))
+            
 
-	    cpu_samples=[]
-	    #print "ROUNDS: "+self.loop_time
-	    for num in range(1, int(self.loop_time)+1):
+        
+                
 
-		
-		if num == int(self.loop_time):
-			cpu_avg=np.mean(cpu_samples)
-			#print "CPU AVG SENT: " + str(cpu_avg)
-			data=Metric('cpu_used',float(cpu_avg),'%')
-			self.send_metric(data)
-		else:
-		
-            		process = subprocess.Popen(['sh','-c', bashCommand], stdout=subprocess.PIPE)
-            		process.wait()
-            		output = process.communicate()[0]
 
-  	    		#print "- cpu sample " +str(num) +  ": " + str(output)
-			if "us" in output: 
-				output="100.0"
-	    			cpu_samples.append(float(output))
-			else:
-				cpu_samples.append(float(output))
-		
-		time.sleep(1)
