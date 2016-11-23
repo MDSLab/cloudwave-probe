@@ -45,6 +45,13 @@ loop_time=10
 * From inside the VM enable at boot the provisioning of the CloudWave data needed by cw-so to provide that information to the cw-probe; in particular put inside the /etc/rc.local file the following command:
  * /opt/cloudwave/cw-so/staging/daemon/cwdaemon -conAi -mesAVo  -meso "CloudWave"
 
+* In order to modify the plugins list loaded at boot of the cw-probe it is needed edit the following file in order to comment the plugin that you need to disable and vice versa:
+  * /usr/local/lib/python2.7/dist-packages/cwProbe-3.0-py2.7.egg-info/entry_points.txt
+  ```
+  [cwprobe.plugins.monitors]
+  cpu = cwProbe.plugins.cwpl_cpu:Cwpl_Cpu
+  mem = cwProbe.plugins.cwpl_mem:Cwpl_Mem
+  ```
 
 ##Service management
 * /etc/init.d/cwProbe [start | stop | status | restart]
